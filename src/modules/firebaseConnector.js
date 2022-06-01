@@ -2,14 +2,15 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 
+// TODO: env vars are not the right place for secrets
 const firebaseConfig = {
-  apiKey: "",
-  authDomain: "self-serve-flashcards.firebaseapp.com",
-  databaseURL: "https://self-serve-flashcards-default-rtdb.firebaseio.com",
-  projectId: "",
-  storageBucket: "self-serve-flashcards.appspot.com",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 
 // TODO: This should be called once on app load

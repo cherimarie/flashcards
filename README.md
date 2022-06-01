@@ -1,3 +1,11 @@
+# About
+
+This is a simple application that allows users to practice language learning by creating and using vocabulary flashcards.
+
+It has a React front end and uses Firebase Firestore Database to hold data.
+
+Github: https://github.com/cherimarie/flashcards
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
