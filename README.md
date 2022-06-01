@@ -1,5 +1,7 @@
 # About
 
+https://self-serve-flashcards.web.app/
+
 This is a simple application that allows users to practice language learning by creating and using vocabulary flashcards.
 
 It has a React front end, uses Firebase Firestore Database to hold data, and is hosted on Firebase Hosting. See `.firebase` files for Firebase configurations.
