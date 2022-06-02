@@ -1,32 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import WordsList from './WordsList'
+import ErrorMessage from './ErrorMessage'
 import { getFirstDeck, getCardsFor } from '../modules/firebaseConnector'
 
 class Deck extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      deck: {
-        name: 'Test Deck',
-        baseLang: 'English',
-        targetLang: 'French',
-        cards: [
-          {baseText: 'Earth', targetText: 'La Terre', emoji: '🌎'},
-          {baseText: 'I have two sisters', targetText: "j'ai deux soeur", emoji: '👯‍♀️'}
-          ]
-        },
+      deck: {name: '', cards: []},
       baseLangDisplayed: true
     }
   }
 
   async componentDidMount(){
-    const theDeck = await getFirstDeck()
-    const theDecksCards = await getCardsFor(theDeck)
-    theDeck.cards = theDecksCards
-    this.setState({deck: theDeck})
+    try{
+      const theDeck = await getFirstDeck()
+      const theDecksCards = await getCardsFor(theDeck)
+      theDeck.cards = theDecksCards
+      this.setState({deck: theDeck})
+    } catch (error) {
+      console.log("ERROR getting deck and cards: ", error.message)
+
+      this.setState({error: true})
+    }
   }
 
   render() {
+    if (this.state.error){
+      return <ErrorMessage />
+    }
+
     return (
       <div>
         <h1>{this.state.deck.name}</h1>
