@@ -32,7 +32,6 @@ async function getFirstDeck(){
   if (docSnap.exists()) {
     const theDeck = docSnap.data()
     theDeck.id = docSnap.id
-    console.log("Deck data to be returned:", theDeck)
     return theDeck
   } else {
     // doc.data() will be undefined in this case
@@ -51,7 +50,6 @@ async function getCardsFor(deck){
   // cardSubcollectionRef is not an array, so we can't use map
   let theCards = []
   cardSubcollectionRef.forEach(item => theCards.push(item.data()))
-  console.log("Card data to be returned:", theCards);
   return theCards
 }
 

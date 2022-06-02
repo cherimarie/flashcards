@@ -21,7 +21,6 @@ class Deck extends Component {
       this.setState({deck: theDeck})
     } catch (error) {
       console.log("ERROR getting deck and cards: ", error.message)
-
       this.setState({error: true})
     }
   }
