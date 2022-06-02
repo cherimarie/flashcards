@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CardsList from './CardsList'
+import WordsList from './WordsList'
 import { getFirstDeck, getCardsFor } from '../modules/firebaseConnector'
 
 class Deck extends Component {
@@ -33,7 +33,7 @@ class Deck extends Component {
         <button onClick={() => this.setState({ baseLangDisplayed: !this.state.baseLangDisplayed }) }>
           Show { this.state.baseLangDisplayed ? this.state.deck.targetLang : this.state.deck.baseLang }
         </button>
-        <CardsList deck={this.state.deck} baseLangDisplayed={this.state.baseLangDisplayed} />
+        <WordsList deck={this.state.deck}/>
       </div>
     );
   }
