@@ -11,3 +11,9 @@
   font-size: calc(10px + 2vmin);
   color: navyblue;
 }
+
+.singleCard {
+  padding:  1rem;
+  border:  1px solid blue;
+  border-radius:  25px;
+}

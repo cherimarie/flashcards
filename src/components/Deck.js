@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import WordsList from './WordsList'
+import DeckCards from './DeckCards'
 import ErrorMessage from './ErrorMessage'
 import { getFirstDeck, getCardsFor } from '../modules/firebaseConnector'
 
@@ -8,7 +9,7 @@ class Deck extends Component {
     super(props);
     this.state = {
       deck: {name: '', cards: []},
-      baseLangDisplayed: true
+      toggleWordList: true
     }
   }
 
@@ -26,17 +27,23 @@ class Deck extends Component {
   }
 
   render() {
+    let body
     if (this.state.error){
       return <ErrorMessage />
+    }
+    if (this.state.toggleWordList){
+      body = <WordsList deck={this.state.deck} />
+    } else {
+      body = <DeckCards deck={this.state.deck} />
     }
 
     return (
       <div>
         <h1>{this.state.deck.name}</h1>
-        <button onClick={() => this.setState({ baseLangDisplayed: !this.state.baseLangDisplayed }) }>
-          Show { this.state.baseLangDisplayed ? this.state.deck.targetLang : this.state.deck.baseLang }
+        <button onClick={() => this.setState({ toggleWordList: !this.state.toggleWordList }) }>
+          Show { this.state.toggleWordList ? "Cards" : "Vocabulary List" }
         </button>
-        <WordsList deck={this.state.deck}/>
+        {body}
       </div>
     );
   }
