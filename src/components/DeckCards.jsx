@@ -12,7 +12,7 @@ class DeckCards extends Component {
     return (
       <div>
         <button onClick={() => this.setState({ baseLangDisplayed: !this.state.baseLangDisplayed }) }>
-            Show { this.state.baseLangDisplayed ? this.props.deck.targetLang : this.props.deck.baseLang }
+            See { this.state.baseLangDisplayed ? this.props.deck.targetLang : this.props.deck.baseLang }
           </button>
 
           {this.props.deck.cards.map(item => (

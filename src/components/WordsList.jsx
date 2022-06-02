@@ -3,15 +3,15 @@ import React, { Component } from 'react';
 class WordsList extends Component {
   render() {
     return (
-      <ul>
+      <div className="wordsList">
         {this.props.deck.cards.map(item => (
-          <li key={item.baseText}>
+          <p key={item.baseText}>
             <span>{item.baseText}</span>
             <span>{item.emoji}</span>
             <span>{item.targetText}</span>
-          </li>
+          </p>
         ))}
-      </ul>
+      </div>
     );
   }
 }
