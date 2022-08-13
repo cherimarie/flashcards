@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Box, Button as GrommetButton } from 'grommet'
 import WordsList from './WordsList'
 import DeckCards from './DeckCards'
 import ErrorMessage from './ErrorMessage'
@@ -35,15 +36,14 @@ class Deck extends Component {
     } else {
       body = <DeckCards deck={this.state.deck} />
     }
+    let showButtonText = `Show ${ this.state.toggleWordList ? "Cards" : "Vocabulary List" }`
 
     return (
-      <div>
+      <Box flex align='center' justify='top'>
         <h1>{this.state.deck.name}</h1>
-        <button onClick={() => this.setState({ toggleWordList: !this.state.toggleWordList }) }>
-          Show { this.state.toggleWordList ? "Cards" : "Vocabulary List" }
-        </button>
+        <GrommetButton size="medium" label={showButtonText} onClick={() => this.setState({ toggleWordList: !this.state.toggleWordList }) }/>
         {body}
-      </div>
+      </Box>
     );
   }
 }
