@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class WordsList extends Component {
   render() {
     return (
-      <div className="wordsList">
+      <div>
         <h2>Your Vocabulary List</h2>
         {this.props.deck.cards.map(item => (
           <p key={item.baseText}>

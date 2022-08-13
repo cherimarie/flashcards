@@ -14,7 +14,11 @@ Deployments are done manually, using the Firebase CLI. The contents of the `buil
 
 Resources: https://firebase.google.com/docs/hosting/quickstart, https://firebase.google.com/docs/cli
 
-## Getting Started with Create React App
+## Design System
+
+This app uses Grommet design system: https://v2.grommet.io
+
+## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

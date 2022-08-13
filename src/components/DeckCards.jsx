@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button as GrommetButton, Card, CardBody } from 'grommet';
 
 class DeckCards extends Component {
   constructor(props) {
@@ -23,20 +24,21 @@ class DeckCards extends Component {
 
   render() {
     const theCard = this.props.deck.cards[this.state.currentCard]
+    let langLabel = `See ${this.state.baseLangDisplayed ? this.props.deck.targetLang : this.props.deck.baseLang}`
     return (
       <div>
-        <button onClick={() => this.setState({ baseLangDisplayed: !this.state.baseLangDisplayed }) }>
-            See { this.state.baseLangDisplayed ? this.props.deck.targetLang : this.props.deck.baseLang }
-          </button>
+        <GrommetButton margin="medium" size="medium" label={langLabel} onClick={() => this.setState({ baseLangDisplayed: !this.state.baseLangDisplayed }) }/>
 
 
-          <div className="singleCard" key={theCard.baseText}>
-            <p>{theCard.emoji}</p>
+          <Card pad="large" background="veryLightAqua">
+            <CardBody>
+              <p>{theCard.emoji}</p>
 
-            <p>{ this.state.baseLangDisplayed ? theCard.baseText : theCard.targetText }</p>
-          </div>
+              <p>{ this.state.baseLangDisplayed ? theCard.baseText : theCard.targetText }</p>
+            </CardBody>
+          </Card>
 
-          <button onClick={this.getNewCard}>Next</button>
+          <GrommetButton primary margin="xlarge" size="large" label="Next" onClick={this.getNewCard}/>
       </div>
     );
   }
