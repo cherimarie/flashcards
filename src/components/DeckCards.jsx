@@ -16,7 +16,7 @@ class DeckCards extends Component {
   getNewCard(){
     let currentIndex = this.state.currentCard
     let newIndex = this.state.lastCard
-    while(newIndex == this.state.lastCard || newIndex == this.state.currentCard){
+    while(newIndex === this.state.lastCard || newIndex === this.state.currentCard){
       newIndex = Math.floor(Math.random() * this.props.deck.cards.length)
     }
     this.setState({lastCard: currentIndex, currentCard: newIndex})
